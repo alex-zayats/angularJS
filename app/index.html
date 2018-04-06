@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" ng-app="postsApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Posts app</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="app.css" />
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="app.module.js"></script>
+    <script src="app.config.js"></script>
+    <script src="core/core.module.js"></script>
+    <script src="core/user.service.js"></script>
+    <script src="posts-list/posts-list.module.js"></script>
+    <script src="posts-list/posts-list.component.js"></script>
+    <script src="login/login.module.js"></script>
+    <script src="login/login.component.js"></script>
+  </head>
+  <body>
+    <div>
+      <a href="#!/posts">Home</a>
+      <a href="#!/login">Login</a>
+      <a href="#!/register">Registration</a>
+    </div>
+    <div ng-view></div>
+  </body>
+</html>

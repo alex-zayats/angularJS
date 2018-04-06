@@ -1,0 +1,6 @@
+<form ng-submit="submitLogin()">
+	<input type="text" placeholder="Login" ng-model="login" name="login">
+	<input type="password" placeholder="Password" ng-model="password" name="password">
+	<input type="submit" id="submit" value="Login" />
+	<p ng-show="userLogged" style="color: green">Successfully logged</p>
+</form>

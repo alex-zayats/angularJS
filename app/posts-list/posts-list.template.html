@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <p>
+        Search:
+        <input ng-model="$ctrl.query" />
+      </p>
+
+      <button ng-if="userLogged" ng-click="showAddPost()">Add post</button>
+      <div ng-show="showAddPostForm">
+        <form>
+          <input type="text" name="title" placeholder="Title" ng-model="addPostTitle" required/>
+          <input type="text" name="author" placeholder="Author" ng-model="addPostAuthor" required/>
+          <textarea name="content" placeholder="Content" ng-model="addPostContent" required></textarea>
+          <input type="text" name="source" placeholder="Source" ng-model="addPostSource" required/>
+          <button type="submit" ng-click="addPost($event)">Add</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-md-10">
+      <h3>Posts</h3>
+      <ul class="posts">
+        <li ng-repeat="post in $ctrl.posts | filter: { author: $ctrl.query }" class="thumbnail">
+          <p>{{post.title}}</p>
+          <p>{{post.content}}</p>
+          <p>{{post.author}}</p>
+          <p ng-if="userLogged" ng-click="deletePost($event, post._id)" style="cursor: pointer;">Delete post</p>
+        </li>
+      </ul>
+      <span>Page: </span>
+      <select ng-change="loadPosts()" ng-model="currentPage">
+        <option ng-repeat="page in $ctrl.pages track by $index" ng-value="{{$index}}">{{$index + 1}}</option>
+      </select>
+    </div>
+  </div>
+</div>
